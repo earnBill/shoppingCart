@@ -6,6 +6,7 @@ import Shop from './pages/Shop'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import { useEffect } from 'react'
+import Product from './components/Product'
 
 const serverUrl = 'https://fakestoreapi.com/products';
 const apiKey = '';
@@ -13,28 +14,31 @@ const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2
 
 
 function App() {
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     async function getProduct() {
       try {
         let response = await fetch(serverUrl);
         let productList = await response.json();
         console.log(productList);
+        setProducts(productList);
       } catch(err) {
         console.log(err);
       }
     }
-    async function getGames() {
-      try {
-        let response = await fetch(gamesUrl);
-        let gamesList = await response.json();
-        console.log(gamesList);
-      } catch(err) {
-        console.log(err);
-      }
-    }
+    // async function getGames() {
+    //   try {
+    //     let response = await fetch(gamesUrl);
+    //     let gamesList = await response.json();
+    //     console.log(gamesList);
+    //   } catch(err) {
+    //     console.log(err);
+    //   }
+    // }
     getProduct();
-    getGames();
-  })
+    // getGames();
+  },[])
 
   return (
    <BrowserRouter>
@@ -46,7 +50,7 @@ function App() {
 
      <Routes>
        <Route path='/' element={<Home />} />
-       <Route path='shop' element={<Shop />} />
+       <Route path='shop' element={<Shop products={products}/>} />
        <Route path='cart' element={<Cart />} />
        <Route path='*' element={<ErrorPage />} />
      </Routes>
