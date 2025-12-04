@@ -15,9 +15,10 @@ const Shop = ({ products }) => {
   }
 
   return(
+    <div className="container">
+    <h1>Hello from Shop!!</h1>  
+    <Link to="/">Click here to go home.</Link>
     <div className="eshop-container">
-      <h1>Hello from Shop!!</h1>  
-      <Link to="/">Click here to go home.</Link>
       {products.map( product => {
         return (
           <Product
@@ -33,6 +34,7 @@ const Shop = ({ products }) => {
         )
       }) }
     </div>
+  </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './index.css'
 import { Route, Routes, BrowserRouter, Link } from 'react-router'
 import ErrorPage from './pages/ErrorPage'
 import Shop from './pages/Shop'
