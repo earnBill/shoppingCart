@@ -6,7 +6,6 @@ import Shop from './pages/Shop'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import { useEffect } from 'react'
-import Product from './components/Product'
 
 const serverUrl = 'https://fakestoreapi.com/products';
 const apiKey = '';
