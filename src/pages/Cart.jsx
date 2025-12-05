@@ -1,10 +1,8 @@
 import { Link } from "react-router";
 import CartProduct from "../components/CartProduct";
-import useCart from "../useCart";
 
-const Cart = () => {
-  const {productsCard} = useCart();
-  console.log(productsCard);
+const Cart = ({ productsCart, setProductsCart} ) => {
+  console.log(productsCart);
   return (
     <>
     <div>
@@ -12,7 +10,7 @@ const Cart = () => {
       <Link to="/">Click here to go home.</Link>
     </div>
     <div cart-container>
-      { productsCard && productsCard.map(product => {
+      { productsCart && productsCart.map(product => {
         return (
           <CartProduct 
             key={product.id}

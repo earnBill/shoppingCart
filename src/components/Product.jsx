@@ -5,6 +5,7 @@ export default function Product({
     title, 
     price, 
     category, 
+    quantity = 1,
     updateQuantity, 
     addToCart
 }) {
@@ -21,7 +22,7 @@ export default function Product({
         <p className="quantity-p">Qty:</p>
         <div className="quantity-items">
           <button className="button-minus">-</button>
-          <input type="text" value={1} onChange={updateQuantity}/>
+          <input type="text" value={quantity} onChange={updateQuantity}/>
           <button className="button-plus">+</button>
         </div>
         <button className="add-t0-cart" onClick={addToCart}>Add to Cart</button>

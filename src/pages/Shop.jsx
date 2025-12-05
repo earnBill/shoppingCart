@@ -1,19 +1,23 @@
 import { Link } from "react-router";
 import Product from "../components/Product";
 import { useState } from "react";
-import useCart from "../useCart";
 
-const Shop = ({ products }) => {
-  const {productsCart, setProductsCart} = useCart();
+const Shop = ({ products, productsCart, setProductsCart }) => {
   
   function updateCart(product) {
     console.log('update');
-    if (productsCart.length == 0) {
-      setProductsCart([product]);
-      console.log(productsCart);
-      return;
-    }
-    setProductsCart(prev => [...prev, product])
+    setProductsCart(prev => {
+      //check if product exist
+      const exist = prev.find(item => item.id === product.id);
+      if (exist) {
+        return prev.map(item => 
+          item.id === product.id 
+            ? { ...item, quantity: (item.quantity || 1) + 1} 
+            : item
+        );
+      }
+      return [...prev, { id:product.id, quantity: 1}];
+    })
     console.log(productsCart);
   }
   

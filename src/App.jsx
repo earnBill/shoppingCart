@@ -14,6 +14,7 @@ const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [productsCart, setProductsCart] = useState([]);
 
   useEffect(() => {
     async function getProduct() {
@@ -49,8 +50,21 @@ function App() {
 
      <Routes>
        <Route path='/' element={<Home />} />
-       <Route path='shop' element={<Shop products={products}/>} />
-       <Route path='cart' element={<Cart />} />
+       <Route path='shop' element={
+          <Shop 
+            products={products} 
+            productsCart={productsCart} 
+            setProductsCart={setProductsCart}
+          />
+          } 
+        />
+       <Route path='cart' element={
+          <Cart 
+            productsCart={productsCart}
+            setProductsCart={setProductsCart}
+          />
+          } 
+       />
        <Route path='*' element={<ErrorPage />} />
      </Routes>
    </BrowserRouter>
