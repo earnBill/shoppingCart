@@ -43,8 +43,11 @@ function App() {
   return (
    <BrowserRouter>
      <nav>
-       <Link to="/">Home</Link> {"| "}
-       <Link to="shop">Shop</Link> {"| "}
+        <div>
+          <Link className="home" to="/">Home</Link>
+           <Link to="shop">Shop</Link>
+        </div>
+       
        <Link to="cart">Cart</Link>
      </nav>
 

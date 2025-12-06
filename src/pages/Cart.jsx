@@ -5,19 +5,19 @@ const Cart = ({ productsCart, setProductsCart} ) => {
   console.log(productsCart);
   return (
     <>
-    <div>
-      <h1>Hello from Cart!!</h1>
-      <Link to="/">Click here to go home.</Link>
+    <div className="cart">
+      <h1>Shopping Cart</h1>
     </div>
-    <div cart-container>
+    <div className="cart-main-container">
       { productsCart && productsCart.map(product => {
         return (
           <CartProduct 
             key={product.id}
             image={product.image}
             title={product.title}
-            description={product.description}
-            price={product.price}  
+            category={product.category}
+            price={product.price}
+            quantity={product.quantity}  
           />
         )
       })}

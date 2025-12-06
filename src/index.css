@@ -2,17 +2,34 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
 }
 nav {
-  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
   text-align: center;
-  font-size: 1.3rem;
+  border-bottom: 1px solid black;
+}
+
+.home {
+  margin-right: 30px;
 }
 
 a {
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
 }
-
+.cart {
+  width: 800px;
+  margin: auto;
+}
 .container {
   margin: 0 auto;
   max-width: 1200px;
@@ -38,13 +55,89 @@ a {
   padding: 20px;
 }
 
+h3 {
+  font-size: 1rem;
+}
 /* .product-image {
   height: 200px;
   max-width: 200px;
 } */
+.cart-product-image {
+  width: 150px;
+  padding: 10px;
+}
+.cart-product-info {
+  text-transform: capitalize;
+}
 
 img {
   width: 100%;
   height: 100%;
   object-fit:contain;
+}
+.cart-main-container {
+  width: 800px;
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 1px 3px 0 #0000001a, 0 1px 1px -1px;
+  border-radius: 5px;
+}
+
+
+.cart-product-container {
+  display: flex;
+  height: 150px;
+  padding: 0 20px;
+  background-color: white;
+  border: 0 solid;
+  border-bottom: 1px solid #ebe6e7;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.cart-quantity-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.quantity-container button {
+  margin-right: 10px 10px 0 0 ;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid #d1d5dc;
+}
+
+.quantity-container button:hover {
+  background-color: #ebe6e7;
+}
+
+.quantity-container input {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #d1d5dc;
+}
+
+.cart-price-container {
+  display: flex;
+}
+
+.cart-price-container button {
+  margin-left: 10px;
+  background-color: white;
+  border: 0;
+  color: red;
+  font-weight: 600;
+}
+
+.cart-price-container button:hover {
+  color:brown
 }

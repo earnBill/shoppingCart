@@ -16,7 +16,7 @@ const Shop = ({ products, productsCart, setProductsCart }) => {
             : item
         );
       }
-      return [...prev, { id:product.id, quantity: 1}];
+      return [...prev, { ...product, quantity: 1}];
     })
     console.log(productsCart);
   }
