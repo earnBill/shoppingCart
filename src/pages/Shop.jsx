@@ -28,8 +28,8 @@ const Shop = ({ products, productsCart, setProductsCart }) => {
 
   return(
     <div className="container">
-    <h1>Hello from Shop!!</h1>  
-    <Link to="/">Click here to go home.</Link>
+    <h2>Our Products</h2>  
+    <p>Browse our collection of 20 items.</p>
     <div className="eshop-container">
       {products.map( product => {
         return (

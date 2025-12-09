@@ -43,12 +43,14 @@ function App() {
   return (
    <BrowserRouter>
      <nav>
-        <div>
-          <Link className="home" to="/">Home</Link>
-           <Link to="shop">Shop</Link>
-        </div>
+       <div className='menu'>
+          <div>
+            <Link className="home" to="/">Home</Link>
+            <Link to="shop">Shop</Link>
+          </div>
        
-       <Link to="cart">Cart</Link>
+         <Link to="cart">Cart</Link>
+       </div>
      </nav>
 
      <Routes>

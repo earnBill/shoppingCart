@@ -8,7 +8,7 @@ const Cart = ({ productsCart, setProductsCart} ) => {
     <div className="cart">
       <h1>Shopping Cart</h1>
     </div>
-    <div className="cart-main-container">
+    {productsCart.length > 0 && <div className="cart-main-container">
       { productsCart && productsCart.map(product => {
         return (
           <CartProduct 
@@ -21,7 +21,7 @@ const Cart = ({ productsCart, setProductsCart} ) => {
           />
         )
       })}
-    </div>
+    </div>}
     </>
   );
 };
