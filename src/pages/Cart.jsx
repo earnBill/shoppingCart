@@ -1,13 +1,32 @@
-import { Link } from "react-router";
 import CartProduct from "../components/CartProduct";
+import EmptyCart from "../components/EmptyCart";
+import Checkout from "../components/Checkout";
 
 const Cart = ({ productsCart, setProductsCart} ) => {
   console.log(productsCart);
+
+  function addProduct(product) {
+    setProductsCart(prev => (
+      prev.map(item => 
+        item.id === product.id
+        ? {...item, quantity: product.quantity + 1 }
+        : item
+      )
+    ))
+  }
+  function removeProduct(product) {
+    setProductsCart(prev => (
+      prev.map(item => 
+        item.id === product.id
+        ? {...item, quantity: product.quantity -1 }
+        : item
+      )
+    ))
+  }
+
   return (
-    <>
     <div className="cart">
-      <h1>Shopping Cart</h1>
-    </div>
+    {productsCart.length === 0 && <EmptyCart />}
     {productsCart.length > 0 && <div className="cart-main-container">
       { productsCart && productsCart.map(product => {
         return (
@@ -17,12 +36,15 @@ const Cart = ({ productsCart, setProductsCart} ) => {
             title={product.title}
             category={product.category}
             price={product.price}
-            quantity={product.quantity}  
+            quantity={product.quantity}
+            addProduct={() => addProduct(product)}
+            removeProduct={() => removeProduct(product)}  
           />
         )
       })}
     </div>}
-    </>
+    {productsCart.length > 0 && <Checkout />}
+    </div>
   );
 };
 

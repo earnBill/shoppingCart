@@ -15,6 +15,10 @@ const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2
 function App() {
   const [products, setProducts] = useState([]);
   const [productsCart, setProductsCart] = useState([]);
+  
+  function countProducts(num) {
+    sum = sum + num;
+  }
 
   useEffect(() => {
     async function getProduct() {
@@ -48,8 +52,14 @@ function App() {
             <Link className="home" to="/">Home</Link>
             <Link to="shop">Shop</Link>
           </div>
-       
-         <Link to="cart">Cart</Link>
+          <div>
+            <Link to="cart">Cart</Link>
+            {productsCart.length > 0 && 
+              <span className='count-products'>{productsCart.reduce((sum, item) =>{
+              return sum + item.quantity
+            }, 0)}</span>}
+          </div>
+         
        </div>
      </nav>
 
